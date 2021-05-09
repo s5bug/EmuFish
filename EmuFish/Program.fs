@@ -1,7 +1,10 @@
 namespace EmuFish
 
+open System
+open System.Diagnostics
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
+open Avalonia.Logging
 open Avalonia.ReactiveUI
 open EmuFish.ViewModels
 open EmuFish.Views
@@ -13,6 +16,14 @@ module Program =
         AppBuilder
             .Configure<App>()
             .UsePlatformDetect()
+            .LogToTrace(level = LogEventLevel.Information, areas =
+                [| LogArea.Property
+                   LogArea.Binding
+                   LogArea.Animations
+                   LogArea.Visual
+                   LogArea.Layout
+                   LogArea.Control |])
+            .With(Win32PlatformOptions(UseWgl = true))
             .UseReactiveUI()
     
     let startMainWindow app opts =
@@ -29,6 +40,9 @@ module Program =
     [<EntryPoint>]
     [<CompiledName "Main">]
     let main (args: array<string>) : int =
+        Trace.Listeners.Add(new TextWriterTraceListener(Console.Out)) |> ignore
+        Trace.AutoFlush <- true
+        
         let builder = lazy buildAvaloniaApp()
         let lifetime = lazy new ClassicDesktopStyleApplicationLifetime()
         let app () = 

@@ -5,11 +5,16 @@
         <TargetFramework>net5.0</TargetFramework>
         <ApplicationIcon>Assets\emufish-logo.ico</ApplicationIcon>
     </PropertyGroup>
+    
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DefineConstants>TRACE</DefineConstants>
+    </PropertyGroup>
 
     <ItemGroup>
         <Compile Include="ViewModels\ViewModelBase.fs" />
         <Compile Include="ViewModels\MainWindowViewModel.fs" />
         <Compile Include="Views\MainWindow.axaml.fs" />
+        <Compile Include="Views\OpenGlControl.axaml.fs" />
         <Compile Include="App.axaml.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
