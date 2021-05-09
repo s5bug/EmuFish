@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
+        <ApplicationIcon>Assets\emufish-logo.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,6 +31,10 @@
         <PackageReference Include="Avalonia.Desktop" Version="0.10.3" />
         <PackageReference Include="Avalonia.Diagnostics" Version="0.10.3" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.3" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\EmuFish.Core\EmuFish.Core.fsproj" />
     </ItemGroup>
 
 </Project>

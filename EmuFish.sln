@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EmuFish", "EmuFish\EmuFish.fsproj", "{039FF451-0D83-4B4D-BA94-EC1A7AC1F6D0}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EmuFish.Core", "EmuFish.Core\EmuFish.Core.fsproj", "{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{039FF451-0D83-4B4D-BA94-EC1A7AC1F6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{039FF451-0D83-4B4D-BA94-EC1A7AC1F6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{039FF451-0D83-4B4D-BA94-EC1A7AC1F6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
