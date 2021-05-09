@@ -1,0 +1,12 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:emufish="using:EmuFish"
+        xmlns:vm="using:EmuFish.ViewModels"
+        x:Class="EmuFish.Views.MainWindow"
+        Icon="/Assets/emufish-logo.ico">
+        
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+        
+</Window>
