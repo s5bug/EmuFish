@@ -1,60 +1,50 @@
 namespace EmuFish
 
 open System
-open System.Diagnostics
 open Avalonia
+open Avalonia.Controls
 open Avalonia.Controls.ApplicationLifetimes
-open Avalonia.Logging
-open Avalonia.ReactiveUI
-open EmuFish.ViewModels
-open EmuFish.Views
+open Avalonia.FuncUI.Components.Hosts
+open Avalonia.Input
+open Avalonia.FuncUI
+open Avalonia.FuncUI.Elmish
+open Avalonia.Shared.PlatformSupport
+
+type MainWindow() as this =
+    inherit HostWindow()
+    
+    let loader = AssetLoader()
+    
+    do
+        this.Title <- "EmuFish"
+        this.Width <- 800.0
+        this.Height <- 600.0
+        this.Icon <- WindowIcon(loader.Open(Uri("avares://EmuFish/Assets/emufish-logo.ico")))
+        
+        Elmish.Program.mkSimple (fun () -> EmuFish.init) EmuFish.update EmuFish.view
+        |> Elmish.Program.withHost this
+        |> Elmish.Program.withConsoleTrace
+        |> Elmish.Program.run
+
+type App() =
+    inherit Application()
+
+    override this.Initialize() =
+        this.Styles.Load "avares://Avalonia.Themes.Fluent/FluentLight.xaml"
+
+    override this.OnFrameworkInitializationCompleted() =
+        match this.ApplicationLifetime with
+        | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime ->
+            desktopLifetime.MainWindow <- MainWindow()
+        | _ -> ()
 
 module Program =
-    
-    [<CompiledName "BuildAvaloniaApp">]
-    let buildAvaloniaApp() =
+
+    [<EntryPoint>]
+    let main(args: string[]) =
         AppBuilder
             .Configure<App>()
             .UsePlatformDetect()
-            .LogToTrace(level = LogEventLevel.Information, areas =
-                [| LogArea.Property
-                   LogArea.Binding
-                   LogArea.Animations
-                   LogArea.Visual
-                   LogArea.Layout
-                   LogArea.Control |])
+            .UseSkia()
             .With(Win32PlatformOptions(UseWgl = true))
-            .UseReactiveUI()
-    
-    let startMainWindow app opts =
-        let app = app()
-        // model.Start opts
-        
-        let mainWinVM = MainWindowViewModel()
-        let mainWin = MainWindow(DataContext = mainWinVM)
-        
-        app <| mainWin
-        
-        0
-    
-    [<EntryPoint>]
-    [<CompiledName "Main">]
-    let main (args: array<string>) : int =
-        Trace.Listeners.Add(new TextWriterTraceListener(Console.Out)) |> ignore
-        Trace.AutoFlush <- true
-        
-        let builder = lazy buildAvaloniaApp()
-        let lifetime = lazy new ClassicDesktopStyleApplicationLifetime()
-        let app () = 
-            // Avalonia initialization
-            let lifetime = lifetime.Value
-            if not builder.IsValueCreated then
-                let _ = builder.Value.SetupWithLifetime(lifetime)
-                ()
-            // Avalonia is initialized. SynchronizationContext-reliant code should be working by now;
-            (fun (win: Avalonia.Controls.Window) ->
-                lifetime.ShutdownMode <- Controls.ShutdownMode.OnMainWindowClose
-                lifetime.MainWindow <- win
-                lifetime.Start(args) |> ignore)
-        
-        startMainWindow app ()
+            .StartWithClassicDesktopLifetime(args)

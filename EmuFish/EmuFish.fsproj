@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     
     <PropertyGroup>
-        <OutputType>WinExe</OutputType>
+        <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
         <ApplicationIcon>Assets\emufish-logo.ico</ApplicationIcon>
         
@@ -22,23 +22,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="ViewModels\ViewModelBase.fs" />
-        <Compile Include="ViewModels\MainWindowViewModel.fs" />
-        <Compile Include="Views\MainWindow.axaml.fs" />
-        <Compile Include="Views\OpenGlControl.axaml.fs" />
-        <Compile Include="App.axaml.fs" />
+        <Compile Include="EmulatorView.fs" />
+        <Compile Include="EmuFish.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Update="**\*.xaml.fs">
-            <DependentUpon>%(Filename)</DependentUpon>
-        </Compile>
-        <Content Include="**\*.xaml" />
-        <AvaloniaResource Include="**\*.xaml">
-            <SubType>Designer</SubType>
-        </AvaloniaResource>
-        <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
     
@@ -46,7 +35,9 @@
         <PackageReference Include="Avalonia" Version="0.10.3" />
         <PackageReference Include="Avalonia.Desktop" Version="0.10.3" />
         <PackageReference Include="Avalonia.Diagnostics" Version="0.10.3" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.3" />
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.5.0-beta" />
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.5.0-beta" />
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.5.0-beta" />
     </ItemGroup>
     
     <ItemGroup>
