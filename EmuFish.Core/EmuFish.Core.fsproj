@@ -8,6 +8,7 @@
     <ItemGroup>
         <Compile Include="Script.fs" />
         <Compile Include="Input.fs" />
+        <Compile Include="ICore.fs" />
     </ItemGroup>
 
     <ItemGroup>

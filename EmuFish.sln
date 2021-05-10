@@ -4,6 +4,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EmuFish", "EmuFish\EmuFish.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EmuFish.Core", "EmuFish.Core\EmuFish.Core.fsproj", "{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EmuFish.SharkBoy", "EmuFish.SharkBoy\EmuFish.SharkBoy.fsproj", "{EA437BBB-04A3-4D5A-BC6B-36EBB9F1CFC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEF5BDCA-469C-4E91-9C35-27B2F539EE84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA437BBB-04A3-4D5A-BC6B-36EBB9F1CFC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA437BBB-04A3-4D5A-BC6B-36EBB9F1CFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA437BBB-04A3-4D5A-BC6B-36EBB9F1CFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA437BBB-04A3-4D5A-BC6B-36EBB9F1CFC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
