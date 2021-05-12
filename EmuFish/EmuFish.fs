@@ -1,5 +1,7 @@
 ﻿namespace EmuFish
 
+open Avalonia.Controls.ApplicationLifetimes
+
 module EmuFish =
     open Avalonia.Controls
     open Avalonia.FuncUI.DSL
@@ -13,6 +15,12 @@ module EmuFish =
     let update (msg: Msg) (state: State): State =
         init
     
+    let shutdown exitcode =
+        match Avalonia.Application.Current.ApplicationLifetime with 
+        | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime -> 
+            desktopLifetime.Shutdown exitcode
+        | _ -> ()
+    
     let fileMenu (state: State) (dispatch) =
         MenuItem.create [
             MenuItem.header "_File"
@@ -23,7 +31,7 @@ module EmuFish =
                 Separator.create []
                 MenuItem.create [
                     MenuItem.header "_Exit"
-                    MenuItem.onClick (fun _ -> dispatch Exit)
+                    MenuItem.onClick (fun _ -> shutdown 0)
                 ]
             ]
         ]

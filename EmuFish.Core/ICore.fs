@@ -7,5 +7,6 @@ type ICore<'state> =
     abstract member SupportsRom : string -> bool
     
     abstract member Load : string -> 'state
+    abstract member Resolution : 'state -> int * int
     
     end

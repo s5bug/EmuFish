@@ -7,4 +7,5 @@ type SharkBoy =
         member this.Initialize () = ()
         member this.SupportsRom name = name.EndsWith(".gb")
         member this.Load name = true
+        member this.Resolution state = 160, 144
     
