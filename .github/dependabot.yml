@@ -1,14 +1,6 @@
 ﻿version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/EmuFish.Core/"
-    schedule: 
-      interval: "daily"
-  - package-ecosystem: "nuget"
-    directory: "/EmuFish/"
-    schedule: 
-      interval: "daily"
-  - package-ecosystem: "nuget"
-    directory: "/EmuFish.SharkBoy/"
+    directory: "/"
     schedule: 
       interval: "daily"
