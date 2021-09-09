@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NLua" Version="1.5.9" />
+      <PackageReference Include="NLua" Version="1.5.11" />
     </ItemGroup>
 
 </Project>
