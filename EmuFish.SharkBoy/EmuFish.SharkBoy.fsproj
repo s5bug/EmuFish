@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Include="SharkBoy.fs" />
+        <Compile Include="GameBoy.fs" />
+        <Compile Include="SharkBoy.fs" />
     </ItemGroup>
 
     <ItemGroup>
