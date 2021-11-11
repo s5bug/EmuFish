@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <PackageReference Include="NLua" Version="1.6.0" />
-      <PackageReference Include="Silk.NET" Version="2.5.0" />
+      <PackageReference Include="Silk.NET" Version="2.10.1" />
     </ItemGroup>
 
 </Project>

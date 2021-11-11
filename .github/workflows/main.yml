@@ -9,11 +9,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.0
       - name: Install .NET
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1.8.2
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: 6.0.x
   build:
     needs:
       - setup
@@ -30,18 +30,18 @@ jobs:
           - framework-dependent
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.0
       - name: Install .NET
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v1.8.2
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: 6.0.x
       - name: Build
         run: >-
           dotnet publish -r ${{matrix.target}} --self-contained ${{
           matrix.self-contained == 'self-contained' }} ${{ matrix.self-contained
           && '' || '/p:DisablePatch="--nopatch"' }}
       - name: Package
-        uses: actions/upload-artifact@v2.2.3
+        uses: actions/upload-artifact@v2.2.4
         with:
           name: 'emufish-${{matrix.target}}-${{matrix.self-contained}}'
           path: |
