@@ -45,4 +45,4 @@ jobs:
         with:
           name: 'emufish-${{matrix.target}}-${{matrix.self-contained}}'
           path: |
-            EmuFish/bin/Debug/net5.0/${{matrix.target}}/publish/
+            EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish/
