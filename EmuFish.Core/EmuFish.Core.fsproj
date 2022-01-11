@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <PackageReference Include="NLua" Version="1.6.0" />
-      <PackageReference Include="Silk.NET" Version="2.11.0" />
+      <PackageReference Include="Silk.NET" Version="2.12.0" />
     </ItemGroup>
 
 </Project>
