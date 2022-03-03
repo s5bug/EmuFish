@@ -11,6 +11,9 @@
         <ForceBeauty>False</ForceBeauty>
         <DisablePatch>False</DisablePatch>
         <BeautyLogLevel>Info</BeautyLogLevel>
+        
+        <AvaloniaVersion>0.10.13</AvaloniaVersion>
+        <AvaloniaFuncUIVersion>0.5.0-beta</AvaloniaFuncUIVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,12 +35,12 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.13" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.13" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.12" />
-        <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="0.5.0-beta" />
-        <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="0.5.0-beta" />
-        <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="0.5.0-beta" />
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="$(AvaloniaFuncUIVersion)" />
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="$(AvaloniaFuncUIVersion)" />
+        <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="$(AvaloniaFuncUIVersion)" />
     </ItemGroup>
     
     <ItemGroup>
