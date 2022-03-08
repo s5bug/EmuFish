@@ -1,13 +1,11 @@
 ﻿# development currently paused
 
 I am waiting for an Avalonia-independent way to pass a Vulkan or OpenGL context
-around (most likely from Silk.NET) before I work on this project further. It is
-likely that I would be able to build an Avalonia component that gets drawn to
-by a Vulkan context, however I do not want to attempt this with my minimal
-knowledge of Vulkan and Avalonia internals.
+around (most likely from Silk.NET) before I work on this project further.
 
-If anyone knows of or can make a library that provides this functionality, an
-issue or pull request would be highly appreciated.
+[AvaloniaUI/Avalonia#7753](https://github.com/AvaloniaUI/Avalonia/pull/7753)
+provides this functionality. I am waiting for that to be merged, or otherwise
+usable.
 
 # EmuFish
 
