@@ -6,10 +6,6 @@
         <ApplicationIcon>Assets\emufish-logo.ico</ApplicationIcon>
         
         <BeautyLibsDir>Lib</BeautyLibsDir>
-        <DisableBeauty>False</DisableBeauty>
-        <NoBeautyFlag>False</NoBeautyFlag>
-        <ForceBeauty>False</ForceBeauty>
-        <DisablePatch>False</DisablePatch>
         <BeautyLogLevel>Info</BeautyLogLevel>
         
         <AvaloniaVersion>0.10.13</AvaloniaVersion>
@@ -17,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="nulastudio.NetCoreBeauty" Version="1.2.9.3" />
+        <PackageReference Include="nulastudio.NetBeauty" Version="2.0.0.0-beta.1" />
         <PackageReference Update="FSharp.Core" Version="6.0.3" />
     </ItemGroup>
     

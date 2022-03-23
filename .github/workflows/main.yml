@@ -27,8 +27,7 @@ jobs:
       - name: Build
         run: >-
           dotnet publish -r ${{matrix.target}} --self-contained ${{
-          matrix.self-contained == 'self-contained' }} ${{ matrix.self-contained
-          && '' || '/p:DisablePatch="--nopatch"' }}
+          matrix.self-contained == 'self-contained' }}
       - name: Package
         uses: actions/upload-artifact@v2.2.4
         with:
