@@ -5,18 +5,7 @@
   - workflow_dispatch
 
 jobs:
-  setup:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2.4.0
-      - name: Install .NET
-        uses: actions/setup-dotnet@v1.8.2
-        with:
-          dotnet-version: 6.0.x
   build:
-    needs:
-      - setup
     runs-on: windows-latest
     strategy:
       matrix:
