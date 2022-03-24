@@ -43,7 +43,7 @@ jobs:
       - name: Archive
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
-            format('zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/{0}/publish', matrix.target) ||
+            format('zip -9 -r EmuFish.zip EmuFish/bin/Debug/net6.0/{0}/publish', matrix.target) ||
             format('tar cvf - EmuFish/bin/Debug/net6.0/{0}/publish{1} | gzip -9 - > EmuFish.tar.gz',
               matrix.target,
               startsWith(matrix.target, 'osx-') && '/EmuFish.app' || '') }}
