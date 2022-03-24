@@ -35,8 +35,8 @@ jobs:
       - name: Build
         run: >-
           dotnet ${{ startsWith(matrix.target, 'osx-') &&
-            'msbuild -t:BundleApp' ||
-            'publish'
+            'msbuild EmuFish/EmuFish.fsproj -t:BundleApp' ||
+            'publish EmuFish/EmuFish.fsproj'
           }} ${{ startsWith(matrix.target, 'osx-') &&
             format('-p:RuntimeIdentifier={0}', matrix.target) ||
             format('-r {0}', matrix.target)
