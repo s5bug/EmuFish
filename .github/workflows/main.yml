@@ -39,10 +39,10 @@ jobs:
             'publish'
           }} ${{ startsWith(matrix.target, 'osx-') &&
             '-p:RuntimeIdentifier=${{ matrix.target }}' ||
-            '-r ' + matrix.target
+            '-r ${{ matrix.target }}'
           }} ${{ startsWith(matrix.target, 'osx-') &&
             '-p:SelfContained=${{ matrix.self-contained == 'self-contained' }}'
-            '--self-contained ${{matrix.self-contained == 'self-contained' }}'
+            '--self-contained ${{ matrix.self-contained == 'self-contained' }}'
           }}
       - name: Beautify
         run: >-
