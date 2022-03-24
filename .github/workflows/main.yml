@@ -41,8 +41,8 @@ jobs:
             '-p:RuntimeIdentifier=${{ matrix.target }}' ||
             '-r ${{ matrix.target }}'
           }} ${{ startsWith(matrix.target, 'osx-') &&
-            '-p:SelfContained=${{ matrix.self-contained == 'self-contained' }}' ||
-            '--self-contained ${{ matrix.self-contained == 'self-contained' }}'
+            format('-p:SelfContained={0}', matrix.self-contained == 'self-contained') ||
+            format('--self-contained {0}', matrix.self-contained == 'self-contained')
           }}
       - name: Beautify
         run: >-
@@ -52,9 +52,8 @@ jobs:
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
             'zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/${{ matrix.target }}/publish' ||
-            'tar cvf - EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish${{
-              startsWith(matrix.target, 'osx-') && '/EmuFish.app' || ''
-              }} | gzip -9 - > EmuFish.tar.gz' }}
+            format('tar cvf - EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish{0} | gzip -9 - > EmuFish.tar.gz',
+              startsWith(matrix.target, 'osx-') && '/EmuFish.app' || '') }}
       - name: Package
         uses: actions/upload-artifact@v3.0.0
         with:
