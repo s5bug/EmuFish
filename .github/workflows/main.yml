@@ -38,8 +38,8 @@ jobs:
             'msbuild -t:BundleApp' ||
             'publish'
           }} ${{ startsWith(matrix.target, 'osx-') &&
-            '-p:RuntimeIdentifier=${{ matrix.target }}' ||
-            '-r ${{ matrix.target }}'
+            format('-p:RuntimeIdentifier={0}', matrix.target) ||
+            format('-r {0}', matrix.target)
           }} ${{ startsWith(matrix.target, 'osx-') &&
             format('-p:SelfContained={0}', matrix.self-contained == 'self-contained') ||
             format('--self-contained {0}', matrix.self-contained == 'self-contained')
@@ -51,8 +51,9 @@ jobs:
       - name: Archive
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
-            'zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/${{ matrix.target }}/publish' ||
-            format('tar cvf - EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish{0} | gzip -9 - > EmuFish.tar.gz',
+            format('zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/{0}/publish', matrix.target) ||
+            format('tar cvf - EmuFish/bin/Debug/net6.0/{0}/publish{1} | gzip -9 - > EmuFish.tar.gz',
+              matrix.target,
               startsWith(matrix.target, 'osx-') && '/EmuFish.app' || '') }}
       - name: Package
         uses: actions/upload-artifact@v3.0.0
