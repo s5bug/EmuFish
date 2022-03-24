@@ -28,7 +28,7 @@ jobs:
       - name: Install NetBeauty
         run: >-
           dotnet tool install --global nulastudio.nbeauty --version 2.0.0-beta.1
-        if: ${{ !startsWith(matrix.target, "osx-" }}
+        if: ${{ !startsWith(matrix.target, "osx-") }}
       - name: Restore
         run: >-
           dotnet restore -r ${{matrix.target}}
