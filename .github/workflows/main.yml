@@ -39,7 +39,7 @@ jobs:
           }} ${{ startsWith(matrix.target, 'osx-') &&
             format('-p:SelfContained={0}', matrix.self-contained == 'self-contained') ||
             format('--self-contained {0}', matrix.self-contained == 'self-contained')
-          }} -p:BeautyEnabled=${{ !startsWith(matrix.target, 'osx-' }}
+          }} -p:BeautyEnabled=${{ !startsWith(matrix.target, 'osx-') }}
       - name: Archive
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
