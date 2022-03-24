@@ -17,8 +17,6 @@
         <NSPrincipalClass>NSApplication</NSPrincipalClass>
         <NSHighResolutionCapable>true</NSHighResolutionCapable>
 
-        <BeautyEnable Condition="'$(BeautyEnable)' == ''">false</BeautyEnable>
-
         <BeautyLibsDir>Lib</BeautyLibsDir>
         <BeautyLogLevel>Info</BeautyLogLevel>
 
@@ -28,7 +26,7 @@
 
     <ItemGroup>
         <PackageReference Include="Dotnet.Bundle" Version="*" />
-        <PackageReference Condition="'$(BeautyEnable)' == 'true'" Include="nulastudio.NetBeauty" Version="2.0.0-beta.2" />
+        <PackageReference Include="nulastudio.NetBeauty" Version="2.0.0-beta.2" />
     </ItemGroup>
     
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
