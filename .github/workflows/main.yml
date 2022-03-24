@@ -27,7 +27,7 @@ jobs:
           dotnet-version: 6.0.x
       - name: Restore
         run: >-
-          dotnet restore -r ${{ matrix.target }} -p:DisableBeauty=${{ startsWith(matrix.target, 'osx-') && "True" || "False" }} 
+          dotnet restore -r ${{ matrix.target }} -p:DisableBeauty=${{ startsWith(matrix.target, 'osx-') && 'True' || 'False' }} 
       - name: Build
         run: >-
           dotnet ${{ startsWith(matrix.target, 'osx-') &&
