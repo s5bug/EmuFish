@@ -38,11 +38,11 @@ jobs:
             'msbuild -t:BundleApp' ||
             'publish'
           }} ${{ startsWith(matrix.target, 'osx-') &&
-            '-p:RuntimeIdentifier=' + matrix.target ||
+            '-p:RuntimeIdentifier=${{ matrix.target }}' ||
             '-r ' + matrix.target
           }} ${{ startsWith(matrix.target, 'osx-') &&
-            '-p:SelfContained=' + (matrix.self-contained == 'self-contained')
-            '--self-contained ' + (matrix.self-contained == 'self-contained')
+            '-p:SelfContained=${{ matrix.self-contained == 'self-contained' }}'
+            '--self-contained ${{matrix.self-contained == 'self-contained' }}'
           }}
       - name: Beautify
         run: >-
@@ -51,10 +51,10 @@ jobs:
       - name: Archive
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
-            ('zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/' + matrix.target + '/publish') ||
-            ('tar cvf - EmuFish/bin/Debug/net6.0/' + matrix.target + '/publish' +
-              ( startsWith(matrix.target, 'osx-') && '/EmuFish.app' || '' ) +
-              ' | gzip -9 - > EmuFish.tar.gz') }}
+            'zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/${{ matrix.target }}/publish' ||
+            'tar cvf - EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish${{
+              startsWith(matrix.target, 'osx-') && '/EmuFish.app' || ''
+              }} | gzip -9 - > EmuFish.tar.gz' }}
       - name: Package
         uses: actions/upload-artifact@v3.0.0
         with:
