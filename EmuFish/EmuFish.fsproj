@@ -16,13 +16,19 @@
         <CFBundleIconFile>EmuFish.icns</CFBundleIconFile>
         <NSPrincipalClass>NSApplication</NSPrincipalClass>
         <NSHighResolutionCapable>true</NSHighResolutionCapable>
-        
+
+        <BeautyEnable Condition="'$(BeautyEnable)' == ''">false</BeautyEnable>
+
+        <BeautyLibsDir>Lib</BeautyLibsDir>
+        <BeautyLogLevel>Info</BeautyLogLevel>
+
         <AvaloniaVersion>0.10.13</AvaloniaVersion>
         <AvaloniaFuncUIVersion>0.5.0</AvaloniaFuncUIVersion>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Dotnet.Bundle" Version="*" />
+        <PackageReference Condition="'$(BeautyEnable)' == 'true'" Include="nulastudio.NetBeauty" Version="2.0.0.0-beta.1" />
     </ItemGroup>
     
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

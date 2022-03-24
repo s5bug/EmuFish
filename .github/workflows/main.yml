@@ -25,13 +25,9 @@ jobs:
         uses: actions/setup-dotnet@v2.0.0
         with:
           dotnet-version: 6.0.x
-      - name: Install NetBeauty
-        run: >-
-          dotnet tool install --global nulastudio.nbeauty --version 2.0.0-beta.1
-        if: ${{ !startsWith(matrix.target, 'osx-') }}
       - name: Restore
         run: >-
-          dotnet restore -r ${{matrix.target}}
+          dotnet restore -r ${{ matrix.target }} -p:BeautyEnabled=${{ !startsWith(matrix.target, 'osx-') }} 
       - name: Build
         run: >-
           dotnet ${{ startsWith(matrix.target, 'osx-') &&
@@ -43,11 +39,7 @@ jobs:
           }} ${{ startsWith(matrix.target, 'osx-') &&
             format('-p:SelfContained={0}', matrix.self-contained == 'self-contained') ||
             format('--self-contained {0}', matrix.self-contained == 'self-contained')
-          }}
-      - name: Beautify
-        run: >-
-          nbeauty2 --loglevel Info EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish Lib
-        if: ${{ !startsWith(matrix.target, 'osx-') }}
+          }} -p:BeautyEnabled=${{ !startsWith(matrix.target, 'osx-' }}
       - name: Archive
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
