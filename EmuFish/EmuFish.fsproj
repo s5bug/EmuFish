@@ -5,16 +5,24 @@
         <TargetFramework>net6.0</TargetFramework>
         <ApplicationIcon>Assets\emufish-logo.ico</ApplicationIcon>
         
-        <BeautyLibsDir>Lib</BeautyLibsDir>
-        <BeautyLogLevel>Info</BeautyLogLevel>
+        <CFBundleName>EmuFish</CFBundleName>
+        <CFBundleDisplayName>EmuFish</CFBundleDisplayName>
+        <CFBundleIdentifier>tf.bug.EmuFish</CFBundleIdentifier>
+        <CFBundleVersion>0.0.0</CFBundleVersion>
+        <CFBundleShortVersionString>0.0.0</CFBundleShortVersionString>
+        <CFBundlePackageType>APPL</CFBundlePackageType>
+        <CFBundleSignature>fish</CFBundleSignature>
+        <CFBundleExecutable>EmuFish</CFBundleExecutable>
+        <CFBundleIconFile>EmuFish.icns</CFBundleIconFile>
+        <NSPrincipalClass>NSApplication</NSPrincipalClass>
+        <NSHighResolutionCapable>true</NSHighResolutionCapable>
         
         <AvaloniaVersion>0.10.13</AvaloniaVersion>
         <AvaloniaFuncUIVersion>0.5.0</AvaloniaFuncUIVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="nulastudio.NetBeauty" Version="2.0.0.0-beta.1" />
-        <PackageReference Update="FSharp.Core" Version="6.0.3" />
+        <PackageReference Include="Dotnet.Bundle" Version="*" />
     </ItemGroup>
     
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -32,6 +40,7 @@
     </ItemGroup>
     
     <ItemGroup>
+        <PackageReference Update="FSharp.Core" Version="6.0.3" />
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
         <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
         <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
