@@ -25,8 +25,14 @@ should create a working build.
 Otherwise, you may be able to grab builds from GitHub actions, however these
 are built in `Debug` mode.
 
+Modern Macs require all applications and libraries to be `codesign`ed. At the
+present moment, this is not built-in to the GitHub Actions workflow, and if you
+are a Mac user, you will have to `codesign` EmuFish along with its libraries
+yourself.
+
 On a release, GitHub actions artifacts will be attached, built in `Release`
-mode, but as of writing no releases exist.
+mode, but as of writing no releases exist. Release builds should, at some point,
+come with signatures for both Windows and Mac.
 
 ## progress
 
