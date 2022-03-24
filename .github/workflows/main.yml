@@ -27,7 +27,7 @@ jobs:
           dotnet-version: 6.0.x
       - name: Restore
         run: >-
-          dotnet restore -r ${{ matrix.target }} -p:BeautyEnabled=${{ !startsWith(matrix.target, 'osx-') }} 
+          dotnet restore -r ${{ matrix.target }} -p:BeautyEnable=${{ !startsWith(matrix.target, 'osx-') }} 
       - name: Build
         run: >-
           dotnet ${{ startsWith(matrix.target, 'osx-') &&
@@ -39,7 +39,7 @@ jobs:
           }} ${{ startsWith(matrix.target, 'osx-') &&
             format('-p:SelfContained={0}', matrix.self-contained == 'self-contained') ||
             format('--self-contained {0}', matrix.self-contained == 'self-contained')
-          }} -p:BeautyEnabled=${{ !startsWith(matrix.target, 'osx-') }}
+          }} -p:BeautyEnable=${{ !startsWith(matrix.target, 'osx-') }}
       - name: Archive
         run: >-
           ${{ startsWith(matrix.target, 'win-') &&
