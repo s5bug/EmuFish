@@ -28,35 +28,35 @@ jobs:
       - name: Install NetBeauty
         run: >-
           dotnet tool install --global nulastudio.nbeauty --version 2.0.0-beta.1
-        if: ${{ !startsWith(matrix.target, "osx-") }}
+        if: ${{ !startsWith(matrix.target, 'osx-') }}
       - name: Restore
         run: >-
           dotnet restore -r ${{matrix.target}}
       - name: Build
         run: >-
-          dotnet ${{ startsWith(matrix.target, "osx-") &&
-            "msbuild -t:BundleApp" ||
-            "publish"
-          }} ${{ startsWith(matrix.target, "osx-") &&
-            "-p:RuntimeIdentifier=" + matrix.target ||
-            "-r " + matrix.target
-          }} ${{ startsWith(matrix.target, "osx-") &&
-            "-p:SelfContained=" + (matrix.self-contained == "self-contained")
-            "--self-contained " + (matrix.self-contained == "self-contained")
+          dotnet ${{ startsWith(matrix.target, 'osx-') &&
+            'msbuild -t:BundleApp' ||
+            'publish'
+          }} ${{ startsWith(matrix.target, 'osx-') &&
+            '-p:RuntimeIdentifier=' + matrix.target ||
+            '-r ' + matrix.target
+          }} ${{ startsWith(matrix.target, 'osx-') &&
+            '-p:SelfContained=' + (matrix.self-contained == 'self-contained')
+            '--self-contained ' + (matrix.self-contained == 'self-contained')
           }}
       - name: Beautify
         run: >-
           nbeauty2 --loglevel Info EmuFish/bin/Debug/net6.0/${{matrix.target}}/publish Lib
-        if: ${{ !startsWith(matrix.target, "osx-" }}
+        if: ${{ !startsWith(matrix.target, 'osx-') }}
       - name: Archive
         run: >-
-          ${{ startsWith(matrix.target, "win-") &&
-            ("zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/" + matrix.target + "/publish") ||
-            ("tar cvf - EmuFish/bin/Debug/net6.0/" + matrix.target + "/publish" +
-              ( startsWith(matrix.target, "osx-") && "/EmuFish.app" || "" ) +
-              " | gzip -9 - > EmuFish.tar.gz") }}
+          ${{ startsWith(matrix.target, 'win-') &&
+            ('zip -9 EmuFish.zip EmuFish/bin/Debug/net6.0/' + matrix.target + '/publish') ||
+            ('tar cvf - EmuFish/bin/Debug/net6.0/' + matrix.target + '/publish' +
+              ( startsWith(matrix.target, 'osx-') && '/EmuFish.app' || '' ) +
+              ' | gzip -9 - > EmuFish.tar.gz') }}
       - name: Package
         uses: actions/upload-artifact@v3.0.0
         with:
           name: 'emufish-${{matrix.target}}-${{matrix.self-contained}}'
-          path: EmuFish${{ startsWith(matrix.target, "win-") && ".zip" || ".tar.gz" }}
+          path: EmuFish${{ startsWith(matrix.target, 'win-') && '.zip' || '.tar.gz' }}
