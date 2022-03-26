@@ -2,18 +2,20 @@
 
 open System
 open EmuFish.Core
-open Silk.NET.OpenGL
+open EmuFish.SharkBoy
+open Silk.NET
+
+type SharkBoyState = { vk: Vulkan.Instance }
 
 type SharkBoy =
-    interface ICore<bool, GameBoyRegisters> with
-        member this.Initialize() = ()
+    interface ICore<SharkBoyState, GameBoyRegisters> with
+        member this.Initialize vk = { vk = vk }
         member this.SupportsRom name = name.EndsWith(".gb")
-        member this.Load name = true
+        member this.Load name state = state
         member this.Resolution state = 160, 144
 
-        member this.Render gl =
-            gl.ClearColor(0.0f, 0.0f, 0.0f, 1.0f)
-            gl.Clear(ClearBufferMask.ColorBufferBit)
+        member this.Render state =
+            state
 
         member this.RegisterInfo r =
             match r with
@@ -30,4 +32,4 @@ type SharkBoy =
             // TODO: figure out the proper sizing of M and T
             | GameBoyRegisters.M -> { width = 16uy; name = "M" }
             | GameBoyRegisters.T -> { width = 16uy; name = "T" }
-            | _ -> ArgumentOutOfRangeException() |> raise
+            | invalid -> ArgumentOutOfRangeException("r", invalid, "Invalid member of type GameBoyRegisters") |> raise

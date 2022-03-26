@@ -5,10 +5,8 @@ open Avalonia
 open Avalonia.Controls
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.FuncUI.Hosts
-open Avalonia.Input
 open Avalonia.FuncUI
-open Avalonia.FuncUI.Elmish
-open Avalonia.Shared.PlatformSupport
+open Avalonia.PlatformSupport
 
 type MainWindow() as this =
     inherit HostWindow()

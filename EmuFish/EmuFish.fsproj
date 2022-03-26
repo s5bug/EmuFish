@@ -19,8 +19,8 @@
 
         <BeautyLibsDir>Lib</BeautyLibsDir>
         <BeautyLogLevel>Info</BeautyLogLevel>
-
-        <AvaloniaVersion>0.10.13</AvaloniaVersion>
+        
+        <AvaloniaVersion>[0.10.999-cibuild0019495-beta]</AvaloniaVersion>
         <AvaloniaFuncUIVersion>0.5.0</AvaloniaFuncUIVersion>
     </PropertyGroup>
 
@@ -48,6 +48,7 @@
         <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
         <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
         <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Avalonia.Vulkan" Version="$(AvaloniaVersion)" />
         <PackageReference Include="JaggerJo.Avalonia.FuncUI" Version="$(AvaloniaFuncUIVersion)" />
         <PackageReference Include="JaggerJo.Avalonia.FuncUI.DSL" Version="$(AvaloniaFuncUIVersion)" />
         <PackageReference Include="JaggerJo.Avalonia.FuncUI.Elmish" Version="$(AvaloniaFuncUIVersion)" />
