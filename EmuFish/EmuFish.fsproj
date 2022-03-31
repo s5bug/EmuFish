@@ -20,7 +20,7 @@
         <BeautyLibsDir>Lib</BeautyLibsDir>
         <BeautyLogLevel>Info</BeautyLogLevel>
         
-        <AvaloniaVersion>[0.10.999-cibuild0019495-beta]</AvaloniaVersion>
+        <AvaloniaVersion>[0.10.999-cibuild0019569-beta]</AvaloniaVersion>
         <AvaloniaFuncUIVersion>0.5.0</AvaloniaFuncUIVersion>
     </PropertyGroup>
 

@@ -7,6 +7,7 @@ open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.FuncUI.Hosts
 open Avalonia.FuncUI
 open Avalonia.PlatformSupport
+open Avalonia.Vulkan
 
 type MainWindow() as this =
     inherit HostWindow()
@@ -43,6 +44,18 @@ module Program =
         AppBuilder
             .Configure<App>()
             .UsePlatformDetect()
+            .With(Win32PlatformOptions(
+                EnableMultitouch = true,
+                UseWgl = false,
+                AllowEglInitialization = false))
+            .With(X11PlatformOptions(
+                EnableMultiTouch = true,
+                UseDBusMenu = true,
+                EnableIme = true,
+                UseGpu = false))
             .UseSkia()
-            .With(Win32PlatformOptions(UseWgl = true))
+            .UseVulkan()
+            .With(VulkanOptions(
+                UseDebug = true,
+                PreferDiscreteGpu = true))
             .StartWithClassicDesktopLifetime(args)
