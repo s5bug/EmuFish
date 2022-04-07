@@ -56,6 +56,7 @@ module Program =
             .UseSkia()
             .UseVulkan()
             .With(VulkanOptions(
+                PresentMode = PresentMode.Immediate,
                 UseDebug = true,
                 PreferDiscreteGpu = true))
             .StartWithClassicDesktopLifetime(args)
