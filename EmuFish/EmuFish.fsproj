@@ -21,7 +21,7 @@
         <BeautyLogLevel>Info</BeautyLogLevel>
 
         <AvaloniaVersion>0.10.14</AvaloniaVersion>
-        <AvaloniaFuncUIVersion>0.5.1</AvaloniaFuncUIVersion>
+        <AvaloniaFuncUIVersion>0.5.3</AvaloniaFuncUIVersion>
     </PropertyGroup>
 
     <ItemGroup>
