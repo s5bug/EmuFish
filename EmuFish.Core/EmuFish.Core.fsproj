@@ -14,7 +14,7 @@
     <ItemGroup>
       <PackageReference Include="NLua" Version="1.6.0" />
       <PackageReference Include="Silk.NET" Version="2.15.0" />
-      <PackageReference Update="FSharp.Core" Version="6.0.4" />
+      <PackageReference Update="FSharp.Core" Version="6.0.5" />
     </ItemGroup>
 
 </Project>
