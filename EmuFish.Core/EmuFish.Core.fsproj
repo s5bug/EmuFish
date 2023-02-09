@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NLua" Version="1.6.0" />
+      <PackageReference Include="NLua" Version="1.6.2" />
       <PackageReference Include="Silk.NET" Version="2.16.0" />
       <PackageReference Update="FSharp.Core" Version="7.0.0" />
     </ItemGroup>
