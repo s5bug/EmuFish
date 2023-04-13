@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -20,7 +20,7 @@
         <BeautyLibsDir>Lib</BeautyLibsDir>
         <BeautyLogLevel>Info</BeautyLogLevel>
 
-        <AvaloniaVersion>0.10.18</AvaloniaVersion>
+        <AvaloniaVersion>0.10.19</AvaloniaVersion>
         <AvaloniaFuncUIVersion>0.5.3</AvaloniaFuncUIVersion>
     </PropertyGroup>
 
