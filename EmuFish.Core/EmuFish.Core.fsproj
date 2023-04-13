@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <PackageReference Include="NLua" Version="1.6.2" />
-      <PackageReference Include="Silk.NET" Version="2.16.0" />
+      <PackageReference Include="Silk.NET" Version="2.17.1" />
       <PackageReference Update="FSharp.Core" Version="7.0.200" />
     </ItemGroup>
 
